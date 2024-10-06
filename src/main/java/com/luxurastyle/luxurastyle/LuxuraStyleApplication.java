@@ -4,14 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class LuxurastyleApplication {
+public class LuxuraStyleApplication {
 
   public static void main(String[] args) {
-    SpringApplication.run(LuxurastyleApplication.class, args);
+    SpringApplication.run(LuxuraStyleApplication.class, args);
   }
-
-  public static void HelloWorld() {
-    System.out.println("Hello World!");
-  }
-
 }
