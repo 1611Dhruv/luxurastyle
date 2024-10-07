@@ -23,7 +23,6 @@ The code is organized into modules following a clear **MVC (Model-View-Controlle
 - **Controller**: Responsible for handling HTTP requests and defining API endpoints.
 - **Service**: Handles business logic and interactions between controllers and repositories.
 - **Repository**: Provides database access and interactions through Hibernate or JDBC.
-- **DAO (Data Access Object)**: Manages lower-level data access details, abstracting the complexity of database queries.
 - **Model**: Represents the entities used in the application (e.g., `Product`, `Customer`, etc.).
 
 ### **Code Structure**
@@ -35,16 +34,15 @@ The code is organized into modules following a clear **MVC (Model-View-Controlle
      │       └── luxurastyle
      │           ├── product
      │           │   ├── ProductController.java
-     |           |   ├── ProductConfiguration.java
+     │           │   ├── ProductConfiguration.java
      │           │   ├── ProductService.java
      │           │   ├── ProductRepository.java
-     │           │   ├── ProductDAO.java
      │           │   └── Product.java
      │           ├── customer
      │           │   ├── CustomerController.java
+     │           │   ├── CustomerConfiguration.java
      │           │   ├── CustomerService.java
      │           │   ├── CustomerRepository.java
-     │           │   ├── CustomerDAO.java
      │           │   └── Customer.java
      │           └── LuxuraStyleApplication.java
      ├── resources
@@ -66,10 +64,9 @@ The code is organized into modules following a clear **MVC (Model-View-Controlle
 To maintain a clean and scalable codebase, we follow these coding principles:
 
 ### 1. **Modular Structure**:
-- Code is organized into separate modules, with each module containing its **Controller**, **Service**, **Repository**, and **DAO** classes. This separation of concerns makes the application easier to manage and extend.
+- Code is organized into separate modules, with each module containing its **Controller**, **Service**, **Repository**, and **Configuration** classes. This separation of concerns makes the application easier to manage and extend.
 
 ### 2. **Design Patterns**:
-- **DAO Pattern**: The **DAO** classes encapsulate all database operations, keeping the data access layer separate from business logic.
 - **Repository Pattern**: Repositories are used to interact with the database using Hibernate and provide a higher-level abstraction over the DAO.
 - **Singleton Pattern**: Singletons are used in certain components to ensure there is only one instance, particularly for services or utility classes.
 - **Factory Pattern**: Factories can be used for object creation, particularly when instantiating entities like orders, customers, or payments.
@@ -79,7 +76,7 @@ To maintain a clean and scalable codebase, we follow these coding principles:
 - The project follows the **Model-View-Controller** (MVC) architecture where:
   - **Controller** manages the incoming requests and responses.
   - **Service** handles business logic.
-  - **Repository** and **DAO** manage database access.
+  - **Repository** manage database access and is based on JPA.
   - **Model** defines the application's data structure.
 
 ### 4. **Exception Handling**:
