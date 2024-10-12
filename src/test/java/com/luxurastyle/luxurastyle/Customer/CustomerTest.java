@@ -11,15 +11,37 @@ public class CustomerTest {
     Customer customer = new Customer();
 
     customer.setId(10000001l);
-    customer.setName("Test");
-    customer.setEmail("test@test.com");
+    customer.setUsername("Test");
     customer.setPassword("Test123");
+    customer.setEmail("test@test.com");
     customer.setAdmin(true);
 
     Assertions.assertEquals(10000001l, customer.getId());
-    Assertions.assertEquals("Test", customer.getName());
-    Assertions.assertEquals("test@test.com", customer.getEmail());
+    Assertions.assertEquals("Test", customer.getUsername());
     Assertions.assertEquals("Test123", customer.getPassword());
+    Assertions.assertEquals("test@test.com", customer.getEmail());
     Assertions.assertTrue(customer.getAdmin());
+  }
+
+  @Test
+  public void testCustomerConstructors() {
+    {
+      Customer customer = new Customer("Test", "Test123", "test@test.com");
+
+      Assertions.assertEquals("Test", customer.getUsername());
+      Assertions.assertEquals("Test123", customer.getPassword());
+      Assertions.assertEquals("test@test.com", customer.getEmail());
+      Assertions.assertFalse(customer.getAdmin());
+    }
+
+    {
+      Customer customer =
+          new Customer("Test", "Test123", "test@test.com", true);
+
+      Assertions.assertEquals("Test", customer.getUsername());
+      Assertions.assertEquals("Test123", customer.getPassword());
+      Assertions.assertEquals("test@test.com", customer.getEmail());
+      Assertions.assertTrue(customer.getAdmin());
+    }
   }
 }
